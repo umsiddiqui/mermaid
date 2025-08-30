@@ -114,8 +114,11 @@ async function createServer() {
   app.use(express.static('demos'));
   app.use(express.static('cypress/platform'));
 
-  app.listen(9000, () => {
-    console.log(`Listening on http://localhost:9000`);
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 9000;
+  app.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`);
+});
+
   });
 }
 
